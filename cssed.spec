@@ -1,20 +1,19 @@
 %define name	cssed
 %define version	0.4.0
-%define release 3
+%define release 4
 
 %define Summary CSS editor for web developers
 %define title	Cssed
-%define section "Internet/Web Editors"
 
 Summary:	%Summary
 Name:           %name
 Version:        %version
 Release:        %mkrel %release
 Group:          Development/Other
-License:        GPL
+License:        GPLv2+
 Url:            http://cssed.sourceforge.net
 
-Source:         %{name}-%{version}.tar.bz2
+Source:         http://mesh.dl.sourceforge.net/sourceforge/cssed/%{name}-%{version}.tar.gz
 Source1:	%name-16.png
 Source2:	%name-32.png
 Source3:	%name.png
@@ -58,7 +57,7 @@ Exec=%{_bindir}/%{name}
 Icon=%{name} 
 Terminal=false
 Type=Application
-Categories=GNOME;GTK;X-MandrivaLinux-Internet-WebEditors;Network;WebDevelopment;
+Categories=GNOME;GTK;WebDevelopment;Development;
 EOF
 
 # icon
@@ -67,11 +66,6 @@ install -m 644 %SOURCE3 %buildroot/%_datadir/pixmaps/%name.png
 install -m 644 %SOURCE1 %buildroot/%_miconsdir/%name.png
 install -m 644 %SOURCE2 %buildroot/%_liconsdir/%name.png
 install -m 644 %SOURCE3 %buildroot/%_iconsdir/%name.png
-
-#%makeinstall
-#for doc in AUTHORS README COPYING INSTALL NEWS ChangeLog; do
-#	rm -f $RPM_BUILD_ROOT%{prefix}/doc/cssed/$doc;
-#done;
 
 %post
 %update_menus
@@ -82,16 +76,12 @@ install -m 644 %SOURCE3 %buildroot/%_iconsdir/%name.png
 %clean
 rm -rf %{buildroot}
 
-
 %files -f %{name}.lang 
 %defattr(-,root,root)
-%doc AUTHORS COPYING ChangeLog README INSTALL NEWS
+%doc AUTHORS ChangeLog README NEWS
 %{_bindir}/%{name}
-%dir %{_datadir}/%{name}/
-%{_datadir}/%{name}/pixmaps/
-%{_datadir}/%{name}/data/
+%{_datadir}/%{name}
 %{_mandir}/man1/%{name}.1.*
-%{_datadir}/locale/*/LC_MESSAGES/*
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
@@ -100,6 +90,6 @@ rm -rf %{buildroot}
 
 %files -n %name-devel
 %defattr(-,root,root)
-%{_datadir}/%{name}/include/*.h
+%{_datadir}/%{name}/include
 %{_libdir}/pkgconfig/%{name}.pc
 
