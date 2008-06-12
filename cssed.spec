@@ -67,11 +67,15 @@ install -m 644 %SOURCE1 %buildroot/%_miconsdir/%name.png
 install -m 644 %SOURCE2 %buildroot/%_liconsdir/%name.png
 install -m 644 %SOURCE3 %buildroot/%_iconsdir/%name.png
 
+%if %mdkversion < 200900
 %post
 %update_menus
+%endif
 
+%if %mdkversion < 200900
 %postun
 %clean_menus 
+%endif
 
 %clean
 rm -rf %{buildroot}
