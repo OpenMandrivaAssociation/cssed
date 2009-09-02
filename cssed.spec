@@ -1,6 +1,6 @@
 %define name	cssed
 %define version	0.4.0
-%define release 4
+%define release 5
 
 %define Summary CSS editor for web developers
 %define title	Cssed
