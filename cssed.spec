@@ -11,7 +11,7 @@ Version:        %version
 Release:        %mkrel %release
 Group:          Development/Other
 License:        GPLv2+
-Url:            http://cssed.sourceforge.net
+Url:            https://cssed.sourceforge.net
 
 Source:         http://mesh.dl.sourceforge.net/sourceforge/cssed/%{name}-%{version}.tar.gz
 Source1:	%name-16.png
