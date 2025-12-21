@@ -20,6 +20,11 @@ Source3:	%name.png
 
 BuildRoot:      %_tmppath/%{name}-%{version}-%{release}-buildroot
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 Buildrequires:   glib2-devel, gtk2-devel, expat, desktop-file-utils
  
 
